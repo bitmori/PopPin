@@ -131,9 +131,11 @@
 }
      
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
-    if([[alertView textFieldAtIndex:0].text isEqualToString:@""] && buttonIndex != 0) {
+    if([[alertView textFieldAtIndex:0].text isEqualToString:@""] && buttonIndex == 1) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid!" message:@"You cannot have a blank message" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
+        return;
+    } else if (buttonIndex == 0) {
         return;
     }
     
@@ -219,10 +221,11 @@
     if(pinAnnotation.coordinate.latitude == selectedLocation.coordinate.latitude && pinAnnotation.coordinate.longitude == selectedLocation.coordinate.longitude) {
         [annView setAlpha:1.0f];
 
-        float scale = [UIImage imageNamed:@"selectpin.png"].scale;
-        if([[model pushes] count] > 5) scale = [UIImage imageNamed:@"selectpin.png"].scale * 1.50;
-            
-        annView.image = [UIImage imageWithCGImage:[UIImage imageNamed:@"selectpin.png"].CGImage scale:scale orientation:UIImageOrientationUp];
+        float scale = [UIImage imageNamed:@"selectpin_original.png"].scale;
+        if([[model pushes] count] > 5) scale = [UIImage imageNamed:@"selectpin_original.png"].scale * 1.50;
+        
+        scale = scale * 0.8;
+        annView.image = [UIImage imageWithCGImage:[UIImage imageNamed:@"selectpin_original.png"].CGImage scale:scale orientation:UIImageOrientationUp];
     }
     else annView.image = retImage;
     
@@ -255,7 +258,7 @@
                 PPMapAnnotationView *annotation = [[PPMapAnnotationView alloc] initWithPin:model];
                 [arr addObject:annotation];
             }
-            NSLog(@"Updating map, %lu models found",[models count]);
+            NSLog(@"Updating map, %i models found",[models count]);
             [poppinMapView addAnnotations:arr];
             [detailCallout setSelectedPins:models];
             

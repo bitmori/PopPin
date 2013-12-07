@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		033B43F5185147FB00BBE1D2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033B43F4185147FB00BBE1D2 /* FacebookSDK.framework */; };
 		033B43F6185147FB00BBE1D2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033B43F4185147FB00BBE1D2 /* FacebookSDK.framework */; };
+		0373327A1853CC780084055B /* selectpin_original.png in Resources */ = {isa = PBXBuildFile; fileRef = 037332791853CC780084055B /* selectpin_original.png */; };
+		0373327C1853CC7D0084055B /* selectpin_original@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0373327B1853CC7D0084055B /* selectpin_original@2x.png */; };
 		6C01ADD2184BA23E00B84F4D /* addpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C01ADCC184BA23E00B84F4D /* addpin@2x.png */; };
 		6C01ADD3184BA23E00B84F4D /* arrowright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C01ADCD184BA23E00B84F4D /* arrowright@2x.png */; };
 		6C01ADD4184BA23E00B84F4D /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C01ADCE184BA23E00B84F4D /* facebook@2x.png */; };
@@ -79,6 +81,8 @@
 
 /* Begin PBXFileReference section */
 		033B43F4185147FB00BBE1D2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		037332791853CC780084055B /* selectpin_original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectpin_original.png; sourceTree = "<group>"; };
+		0373327B1853CC7D0084055B /* selectpin_original@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectpin_original@2x.png"; sourceTree = "<group>"; };
 		6C01ADCC184BA23E00B84F4D /* addpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addpin@2x.png"; path = "Images/Retina/addpin@2x.png"; sourceTree = "<group>"; };
 		6C01ADCD184BA23E00B84F4D /* arrowright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrowright@2x.png"; path = "Images/Retina/arrowright@2x.png"; sourceTree = "<group>"; };
 		6C01ADCE184BA23E00B84F4D /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "Images/Retina/facebook@2x.png"; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 		6C01ADCA184BA1AB00B84F4D /* Retina */ = {
 			isa = PBXGroup;
 			children = (
+				0373327B1853CC7D0084055B /* selectpin_original@2x.png */,
 				6C01ADEC184BAF3B00B84F4D /* arrowup@2x.png */,
 				6C01ADCC184BA23E00B84F4D /* addpin@2x.png */,
 				6C01ADCD184BA23E00B84F4D /* arrowright@2x.png */,
@@ -215,6 +220,7 @@
 		6C01ADCB184BA1AD00B84F4D /* Standard */ = {
 			isa = PBXGroup;
 			children = (
+				037332791853CC780084055B /* selectpin_original.png */,
 				6C01ADEA184BAF3200B84F4D /* arrowup.png */,
 				6C01ADD8184BA24400B84F4D /* addpin.png */,
 				6C01ADD9184BA24400B84F4D /* arrowright.png */,
@@ -578,6 +584,7 @@
 			files = (
 				6C01ADE1184BA24400B84F4D /* logo.png in Resources */,
 				6C3D76481833FB900036D8DD /* Images.xcassets in Resources */,
+				0373327A1853CC780084055B /* selectpin_original.png in Resources */,
 				6C01ADE0184BA24400B84F4D /* facebook.png in Resources */,
 				6C01ADE3184BA24400B84F4D /* selectpin.png in Resources */,
 				6C01ADED184BAF3B00B84F4D /* arrowup@2x.png in Resources */,
@@ -585,6 +592,7 @@
 				6C3D763A1833FB900036D8DD /* InfoPlist.strings in Resources */,
 				6C01ADD7184BA23E00B84F4D /* selectpin@2x.png in Resources */,
 				6C01ADDF184BA24400B84F4D /* arrowright.png in Resources */,
+				0373327C1853CC7D0084055B /* selectpin_original@2x.png in Resources */,
 				6C01ADD3184BA23E00B84F4D /* arrowright@2x.png in Resources */,
 				6C01ADD2184BA23E00B84F4D /* addpin@2x.png in Resources */,
 				6C01ADD6184BA23E00B84F4D /* logout@2x.png in Resources */,
