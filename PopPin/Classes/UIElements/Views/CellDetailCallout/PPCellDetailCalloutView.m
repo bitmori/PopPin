@@ -25,6 +25,9 @@
     
     UIImage *upArrowImage;
     UIImage *downArrowImage;
+    
+    UISwipeGestureRecognizer *swipeUpGesture;
+    UISwipeGestureRecognizer *swipeDownGesture;
 }
 
 @end
@@ -42,6 +45,8 @@
         
         upArrowImage = [UIImage imageNamed:@"arrowup.png"];
         downArrowImage = [UIImage imageWithCGImage:upArrowImage.CGImage scale:upArrowImage.scale orientation:UIImageOrientationDown];
+        
+        [viewButton setBounds:UIEdgeInsetsInsetRect(viewButton.bounds, UIEdgeInsetsMake(5, 5, 5, 5))];
     }
     return self;
 }
@@ -56,6 +61,14 @@
     viewButton.layer.mask = maskLayer;
     [viewButton.layer setMasksToBounds:YES];
     [viewButton setClipsToBounds:YES];
+    
+    swipeUpGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeUp:)];
+    [swipeUpGesture setDirection:UISwipeGestureRecognizerDirectionUp];
+    [viewButton addGestureRecognizer:swipeUpGesture];
+    
+    swipeDownGesture = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(swipeDown:)];
+    [swipeDownGesture setDirection:UISwipeGestureRecognizerDirectionDown];
+    [viewButton addGestureRecognizer:swipeDownGesture];
 }
 
 #pragma mark -
@@ -89,6 +102,16 @@
     if(_pinListShown) [self hide];
     else if(_pinDetailShown) [self showPinList];
     else [self showPinDetail];
+}
+
+-(void)swipeUp:(id)sender {
+    if(_pinDetailShown) [self showPinList];
+    else [self showPinDetail];
+}
+
+-(void)swipeDown:(id)sender {
+    if(_pinListShown) [self showPinDetail];
+    else [self hide];
 }
 
 #pragma mark -
@@ -146,7 +169,6 @@
 #pragma mark Table View Methods
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"TableView: %lu cells",[tableViewData count]);
     return [tableViewData count];
 }
 

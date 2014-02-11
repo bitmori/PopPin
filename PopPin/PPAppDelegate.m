@@ -40,6 +40,7 @@
 #pragma mark URL Methods
 
 -(BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    NSLog(@"url open");
     return [PFFacebookUtils handleOpenURL:url];
 }
 

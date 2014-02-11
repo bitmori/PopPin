@@ -34,7 +34,7 @@
 -(void)viewWillAppear:(BOOL)animated {
     [self setNeedsStatusBarAppearanceUpdate];
     [PFFacebookUtils initializeFacebook];
-    
+    NSLog(@"homeview viewWillAppear");
     if(first) {
         first = NO;
         [UIView animateWithDuration:1.0 delay:0.0 options:UIViewAnimationOptionAutoreverse|UIViewAnimationOptionRepeat|UIViewAnimationOptionCurveEaseOut animations:^{
@@ -71,6 +71,7 @@
             NSLog(@"User with facebook logged in!");
             [self requestForMe];
         }
+        NSLog(@"ads");
     }];
 }
 

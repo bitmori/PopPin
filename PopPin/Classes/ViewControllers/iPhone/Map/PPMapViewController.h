@@ -18,6 +18,9 @@
     IBOutlet PPSettingsCalloutView *settingsCallout;
     IBOutlet PPCellDetailCalloutView *detailCallout;
     
+    IBOutlet UIView *frostOne;
+    IBOutlet UIView *frostTwo;
+    
 }
 
 #pragma mark -

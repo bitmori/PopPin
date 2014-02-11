@@ -30,6 +30,8 @@
     BOOL firstUpdate;
     BOOL shouldUpdate;
     BOOL shouldLocate;
+    
+    BOOL addingPin;
 }
 
 @end
@@ -60,9 +62,21 @@
     currentLocation = NULL;
     onlyFriends = NO;
     selectedLocation = NULL;
+    addingPin = NO;
     
     [poppinMapView setRegion:MKCoordinateRegionMake(poppinMapView.region.center, MKCoordinateSpanMake(0.001, 0.001)) animated:YES];
     [poppinMapView setShowsBuildings:YES];
+    
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(addPinPushed:)];
+    [longPress setNumberOfTouchesRequired:1];
+    [longPress setMinimumPressDuration:1.0];
+    [poppinMapView addGestureRecognizer:longPress];
+    
+    [frostOne.layer setCornerRadius:3.0f];
+    [frostTwo.layer setCornerRadius:3.0f];
+    
+    [frostOne setAlpha:0.9];
+    [frostTwo setAlpha:0.9];
     
 }
 
@@ -77,6 +91,20 @@
     
     currentLocation = [sharedLocationManager currentLocation];
     [self centerMapOnLocation:currentLocation];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    if(![defaults objectForKey:@"frost-over"]) {
+        [UIView animateWithDuration:0.75 delay:4.5 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+            [frostOne setAlpha:0.0f];
+            [frostTwo setAlpha:0.0f];
+        } completion:^(BOOL finished) {
+            [defaults setObject:@"YES" forKey:@"frost-over"];
+        }];
+    }
+    else {
+        [frostOne setAlpha:0.0f];
+        [frostTwo setAlpha:0.0f];
+    }
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
@@ -125,12 +153,17 @@
 #pragma mark IBAction Methods
 
 -(IBAction)addPinPushed:(id)sender {
+    if(addingPin) return;
+    addingPin = YES;
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Add Pin" message:@"Enter a message" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Pin!", nil];
     [alert setAlertViewStyle:UIAlertViewStylePlainTextInput];
     [alert show];
 }
      
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    addingPin = NO;
+    
     if([[alertView textFieldAtIndex:0].text isEqualToString:@""] && buttonIndex == 1) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Invalid!" message:@"You cannot have a blank message" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
         [alert show];
@@ -141,6 +174,10 @@
     
     NSLog(@"Add pin!: %@",[sharedUserManager userData]);
     
+    CLLocationCoordinate2D coordinate = currentLocation.coordinate;
+    coordinate.latitude += 0.0001;
+    coordinate.longitude += 0.0001;
+    
     PFObject *pin = [PFObject objectWithClassName:@"Pin"];
     NSString *fbid = [sharedUserManager userData][@"id"];
     
@@ -148,14 +185,26 @@
     pin[@"Name"] = [sharedUserManager userData][@"name"];
     pin[@"Text"] = [alertView textFieldAtIndex:0].text;
     pin[@"Pushes"] = @[fbid];
-    pin[@"Location"] = [PFGeoPoint geoPointWithLatitude:currentLocation.coordinate.latitude longitude:currentLocation.coordinate.longitude];
-    [pin saveInBackground];
-    
-    PPPinModel *model = [[PPPinModel alloc] initWithObject:pin];
-    PPMapAnnotationView *annotation = [[PPMapAnnotationView alloc] initWithPin:model];
-    [poppinMapView addAnnotation:annotation];
-    [detailCallout addSelectedPins:@[model]];
-    
+    pin[@"Location"] = [PFGeoPoint geoPointWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    [pin saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if(succeeded) {
+            PPPinModel *model = [[PPPinModel alloc] initWithObject:pin];
+            PPMapAnnotationView *annotation = [[PPMapAnnotationView alloc] initWithPin:model];
+            [poppinMapView addAnnotation:annotation];
+            [detailCallout addSelectedPins:@[model]];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pin Added" message:@"Your new pin has been successfully added" delegate:nil cancelButtonTitle:@"Awesome" otherButtonTitles:nil];
+            [alert show];
+            
+            [poppinMapView setCenterCoordinate:currentLocation.coordinate animated:YES];
+        }
+        else {
+            [pin saveEventually];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pin Error" message:@"Something went wrong! Your pin was not added to the map and will try to be added later" delegate:nil cancelButtonTitle:@"Bummer" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
 }
 
 #pragma mark -
@@ -222,9 +271,8 @@
         [annView setAlpha:1.0f];
 
         float scale = [UIImage imageNamed:@"selectpin_original.png"].scale;
-        if([[model pushes] count] > 5) scale = [UIImage imageNamed:@"selectpin_original.png"].scale * 1.50;
+        if([[model pushes] count] > 5) scale = [UIImage imageNamed:@"selectpin_original.png"].scale * 0.75;
         
-        scale = scale * 0.8;
         annView.image = [UIImage imageWithCGImage:[UIImage imageNamed:@"selectpin_original.png"].CGImage scale:scale orientation:UIImageOrientationUp];
     }
     else annView.image = retImage;

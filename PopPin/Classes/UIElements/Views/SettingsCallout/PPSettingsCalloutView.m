@@ -51,6 +51,12 @@
     leftArrowImage = [UIImage imageWithCGImage:rightArrowImage.CGImage scale:rightArrowImage.scale orientation:UIImageOrientationDown];
     
     [viewButton setImage:rightArrowImage forState:UIControlStateNormal];
+    
+    UISwipeGestureRecognizer *swipe = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(viewTogglePushed:)];
+    [swipe setDirection:UISwipeGestureRecognizerDirectionRight|UISwipeGestureRecognizerDirectionLeft];
+    [viewButton addGestureRecognizer:swipe];
+    
+    [viewButton setBounds:UIEdgeInsetsInsetRect(viewButton.bounds, UIEdgeInsetsMake(5, 5, 5, 5))];
     [self setFrame:CGRectMake(-self.frame.size.width+20, self.frame.origin.y, self.frame.size.width, self.frame.size.height)];
 }
 

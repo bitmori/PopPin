@@ -229,6 +229,34 @@
                                     <outlet property="viewButton" destination="sIR-NT-h8b" id="dkN-hh-iK4"/>
                                 </connections>
                             </view>
+                            <view contentMode="scaleToFill" id="Tau-Nd-UzQ">
+                                <rect key="frame" x="33" y="32" width="105" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HAN-uL-KCL">
+                                        <rect key="frame" x="12" y="9" width="80" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.23921568630000001" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <view contentMode="scaleToFill" id="y0l-zc-whV">
+                                <rect key="frame" x="151" y="428" width="105" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pin Details" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="S1p-4S-KZ0">
+                                        <rect key="frame" x="11" y="9" width="82" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.24313725489999999" green="0.23921568630000001" blue="0.41960784309999999" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -238,6 +266,8 @@
                     <connections>
                         <outlet property="addPinButton" destination="Ckw-wi-c5c" id="FTO-pO-bZZ"/>
                         <outlet property="detailCallout" destination="JYK-Jg-AF9" id="hl5-6H-dby"/>
+                        <outlet property="frostOne" destination="Tau-Nd-UzQ" id="VuF-jA-xw8"/>
+                        <outlet property="frostTwo" destination="y0l-zc-whV" id="cJH-2b-8M9"/>
                         <outlet property="poppinMapView" destination="yLM-WB-Ty4" id="wCV-oB-342"/>
                         <outlet property="settingsCallout" destination="nzG-vI-v3t" id="XEt-yA-zaU"/>
                     </connections>
