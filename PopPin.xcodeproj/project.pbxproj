@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		033B43F5185147FB00BBE1D2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033B43F4185147FB00BBE1D2 /* FacebookSDK.framework */; };
 		033B43F6185147FB00BBE1D2 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 033B43F4185147FB00BBE1D2 /* FacebookSDK.framework */; };
 		0373327A1853CC780084055B /* selectpin_original.png in Resources */ = {isa = PBXBuildFile; fileRef = 037332791853CC780084055B /* selectpin_original.png */; };
 		0373327C1853CC7D0084055B /* selectpin_original@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0373327B1853CC7D0084055B /* selectpin_original@2x.png */; };
+		4ABC181718A9C1FD0006F129 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABC181518A9C1FD0006F129 /* Parse.framework */; };
+		4ABC181818A9C1FD0006F129 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4ABC181618A9C1FD0006F129 /* FacebookSDK.framework */; };
 		6C01ADD2184BA23E00B84F4D /* addpin@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C01ADCC184BA23E00B84F4D /* addpin@2x.png */; };
 		6C01ADD3184BA23E00B84F4D /* arrowright@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C01ADCD184BA23E00B84F4D /* arrowright@2x.png */; };
 		6C01ADD4184BA23E00B84F4D /* facebook@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6C01ADCE184BA23E00B84F4D /* facebook@2x.png */; };
@@ -57,7 +58,6 @@
 		6C3D768D183402510036D8DD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3D768C183402510036D8DD /* MapKit.framework */; };
 		6C3D768F183405790036D8DD /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3D768E183405790036D8DD /* CoreLocation.framework */; };
 		6C3D76931834060A0036D8DD /* PPPinModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C3D76921834060A0036D8DD /* PPPinModel.m */; };
-		6C3D769518369F2D0036D8DD /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3D769418369F2D0036D8DD /* Parse.framework */; };
 		6C3D769718369F3E0036D8DD /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3D769618369F3E0036D8DD /* AudioToolbox.framework */; };
 		6C3D769918369F430036D8DD /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3D769818369F430036D8DD /* CFNetwork.framework */; };
 		6C3D769B18369F500036D8DD /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C3D769A18369F500036D8DD /* libz.1.1.3.dylib */; };
@@ -83,6 +83,9 @@
 		033B43F4185147FB00BBE1D2 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		037332791853CC780084055B /* selectpin_original.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectpin_original.png; sourceTree = "<group>"; };
 		0373327B1853CC7D0084055B /* selectpin_original@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "selectpin_original@2x.png"; sourceTree = "<group>"; };
+		4ABC181318A9C17A0006F129 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		4ABC181518A9C1FD0006F129 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = ../../../../../Developer/Lib/Parse.framework; sourceTree = "<group>"; };
+		4ABC181618A9C1FD0006F129 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../../../Developer/Lib/FacebookSDK.framework; sourceTree = "<group>"; };
 		6C01ADCC184BA23E00B84F4D /* addpin@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "addpin@2x.png"; path = "Images/Retina/addpin@2x.png"; sourceTree = "<group>"; };
 		6C01ADCD184BA23E00B84F4D /* arrowright@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "arrowright@2x.png"; path = "Images/Retina/arrowright@2x.png"; sourceTree = "<group>"; };
 		6C01ADCE184BA23E00B84F4D /* facebook@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "facebook@2x.png"; path = "Images/Retina/facebook@2x.png"; sourceTree = "<group>"; };
@@ -161,6 +164,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4ABC181718A9C1FD0006F129 /* Parse.framework in Frameworks */,
+				4ABC181818A9C1FD0006F129 /* FacebookSDK.framework in Frameworks */,
 				6C3D76A518369F730036D8DD /* SystemConfiguration.framework in Frameworks */,
 				6C3D76A318369F6B0036D8DD /* StoreKit.framework in Frameworks */,
 				6C3D76A118369F640036D8DD /* Security.framework in Frameworks */,
@@ -172,9 +177,7 @@
 				6C3D768F183405790036D8DD /* CoreLocation.framework in Frameworks */,
 				6C3D768D183402510036D8DD /* MapKit.framework in Frameworks */,
 				6C3D76321833FB900036D8DD /* CoreGraphics.framework in Frameworks */,
-				033B43F5185147FB00BBE1D2 /* FacebookSDK.framework in Frameworks */,
 				6C3D76341833FB900036D8DD /* UIKit.framework in Frameworks */,
-				6C3D769518369F2D0036D8DD /* Parse.framework in Frameworks */,
 				6C3D76301833FB900036D8DD /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,6 +281,9 @@
 		6C3D762E1833FB900036D8DD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4ABC181518A9C1FD0006F129 /* Parse.framework */,
+				4ABC181618A9C1FD0006F129 /* FacebookSDK.framework */,
+				4ABC181318A9C17A0006F129 /* FacebookSDK.framework */,
 				033B43F4185147FB00BBE1D2 /* FacebookSDK.framework */,
 				6C3D76A418369F730036D8DD /* SystemConfiguration.framework */,
 				6C3D76A218369F6B0036D8DD /* StoreKit.framework */,
@@ -769,8 +775,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"./**",
-					./../../../Documents/FacebookSDK,
-					/Users/ryangorup/Dropbox/PopPin,
+					/Developer/Lib,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PopPin/PopPin-Prefix.pch";
@@ -790,8 +795,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"./**",
-					./../../../Documents/FacebookSDK,
-					/Users/ryangorup/Dropbox/PopPin,
+					/Developer/Lib,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PopPin/PopPin-Prefix.pch";

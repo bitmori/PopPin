@@ -46,7 +46,7 @@
         
         [textlabel setText:[pin text]];
         [usernameLabel setText:[pin username]];
-        [pushesLabel setText:[NSString stringWithFormat:@"%lu",[[pin pushes] count]]];
+        [pushesLabel setText:[NSString stringWithFormat:@"%lu",(unsigned long)[[pin pushes] count]]];
         
         PPUserManager *sharedUser = [PPUserManager initializeUserManager];
         NSString *fbid = [sharedUser userData][@"id"];
